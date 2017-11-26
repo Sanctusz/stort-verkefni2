@@ -21,28 +21,34 @@ var program = (function() {
 
   function show(video) {
     var div = document.createElement("div");
-    var divname = ["ID:", "Titill:", "Gert:", "Lengd:", "Mynd:", "Myndband:"];
-    var divcontent = [video.id, video.title, video.created, video.duration, video.poster, video.video];
+    var divname = ["Mynd:", "Lengd:", "Titill:", "Gert:"];
+    var divcontent = [video.poster, video.duration, video.title, video.created];
     for (var i = 0; i < divcontent.length; i++) {
-      if (i === 4) {
-        var divn = document.createElement("div");
+      if (i === 0) {
+        //Mynd
+        var a = document.createElement("a");
         var img = document.createElement("img");
-        divn.innerHTML = divname[i];
+        a.href = "http://youtube.com";
         img.src = divcontent[i];
-        console.log(divname[i]);
-        console.log(divcontent[i]);
-        console.log("MYND!");
-        div.appendChild(divn);
-        div.appendChild(img);
+        a.appendChild(img);
+        div.appendChild(a);
+      }
+      else if (i === 1) {
+        //lengd
+        var divc = document.createElement("div");
+        divc.innerHTML = divcontent[i];
+        div.appendChild(divc);
+      }
+      else if (i === 2) {
+        //Titill
+        var divc = document.createElement("div");
+        divc.innerHTML = divcontent[i];
+        div.appendChild(divc);
       }
       else {
-        var divn = document.createElement("div");
+        //Gert
         var divc = document.createElement("div");
-        divn.innerHTML = divname[i];
-        divc.innerHTML = divcontent[i];
-        console.log(divname[i]);
-        console.log(divcontent[i]);
-        div.appendChild(divn);
+        divc.innerHTML = "Myndband búið til " + divcontent[i];
         div.appendChild(divc);
       }
     }

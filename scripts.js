@@ -28,7 +28,9 @@ function loadJSON(callback) {
         var cH2 = document.createElement("h2"); //create h2 element
         //var cCataName = document.createTextNode(cata[i].title); //get catagory title, dont confuse with video title
         cH2.appendChild(document.createTextNode(cata[i].title)); //throw catagory title into h2 element
-        result.appendChild(cH2);
+        div.appendChild(cH2)
+        result.appendChild(div);
+
         var tempVid = cata[i].videos;
         console.log(tempVid.length + " TempVid");
         console.log(tempVid);
@@ -44,18 +46,20 @@ function loadJSON(callback) {
             a.appendChild(img);
             div.appendChild(a);
             //Get video title from Vidoes insert video title
-            var vTitle = document.createTextNode(video[tempID-1].title);
-            console.log(vTitle);
-            console.log("Þetta er vid title");
+            //var vTitle = document.createTextNode(video[tempID-1].title);
+            //console.log(vTitle);
+            //console.log("Þetta er vid title");
             //document.createTextNode(video.title[tempID]); //video title name
             var cH3 = document.createElement("h3"); // create a h3 element
-            cH3.appendChild(document.createTextNode(video)); // throw video title into h3 element
+            cH3.appendChild(document.createTextNode(video[tempID-1].title)); // throw video title into h3 element
+            
             div.appendChild(cH3)
             result.appendChild(div);
             //insert creation date
         }
+
       }
-      result.appendChild(div);
+      //result.appendChild(div);
     }
   
     function init() {

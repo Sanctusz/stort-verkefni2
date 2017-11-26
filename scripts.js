@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function loadJSON(callback) {
   var xobj = new XMLHttpRequest();
   xobj.overrideMimeType("application/json");
@@ -31,3 +32,6 @@ var program = (function() {
     init: init
   }
 })();
+=======
+var API_URL = '/video.json?id=';
+>>>>>>> 3c4fc688ebffd37f4c7e8514289ed521e1a44fd0

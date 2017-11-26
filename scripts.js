@@ -23,14 +23,28 @@ var program = (function() {
     var div = document.createElement("div");
     var divname = ["ID:", "Titill:", "Gert:", "Lengd:", "Mynd:", "Myndband:"];
     var divcontent = [video.id, video.title, video.created, video.duration, video.poster, video.video];
-    for (var i = 0; i < divname.length; i++) {
-      var divn = document.createElement("div");
-      var divc = document.createElement("div");
-      divn.innerHTML = divname[i];
-      divc.innerHTML = divcontent[i];
-      console.log(divname);
-      div.appendChild(divn);
-      div.appendChild(divc);
+    for (var i = 0; i < divcontent.length; i++) {
+      if (i === 4) {
+        var divn = document.createElement("div");
+        var img = document.createElement("img");
+        divn.innerHTML = divname[i];
+        img.src = divcontent[i];
+        console.log(divname[i]);
+        console.log(divcontent[i]);
+        console.log("MYND!");
+        div.appendChild(divn);
+        div.appendChild(img);
+      }
+      else {
+        var divn = document.createElement("div");
+        var divc = document.createElement("div");
+        divn.innerHTML = divname[i];
+        divc.innerHTML = divcontent[i];
+        console.log(divname[i]);
+        console.log(divcontent[i]);
+        div.appendChild(divn);
+        div.appendChild(divc);
+      }
     }
     result.appendChild(div);
   }
@@ -43,7 +57,9 @@ var program = (function() {
       result = document.querySelector("div");
       console.log("LOADED");
       console.log("Video nr 1 er:" + video[0].title);
-      show(videodata.videos[0]);
+      for (var i = 0; i < video.length; i++) {
+        show(videodata.videos[i]);
+      }
     });
   }
 

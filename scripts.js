@@ -11,8 +11,10 @@ function loadJSON(callback) {
   console.log("json connected");
 }
 
+var result;
+
 document.addEventListener('DOMContentLoaded', function () {
-  program.init();
+  program.init(result);
 });
 
 var program = (function() {

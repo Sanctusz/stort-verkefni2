@@ -51,12 +51,9 @@ var program = (function() {
 
   function init() {
     loadJSON(function(response) {
-      // Parse JSON string into object
       var videodata = JSON.parse(response);
       var video = videodata.videos;
       result = document.querySelector("div");
-      console.log("LOADED");
-      console.log("Video nr 1 er:" + video[0].title);
       for (var i = 0; i < video.length; i++) {
         show(videodata.videos[i]);
       }

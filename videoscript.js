@@ -71,6 +71,9 @@ var program = (function() {
     //forward
     var videoForwardButton = document.createElement("button");
     videoForwardButton.setAttribute('class', 'forward');
+    //fullscreen
+    var videoFullscreenButton = document.createElement("button");
+    videoFullscreenButton.setAttribute('class', 'fullscreen');
 
  
     var getVideoPath = video[getMyID].video;
@@ -83,6 +86,7 @@ var program = (function() {
     videoDiv.appendChild(videoSoundButton);
     videoDiv.appendChild(videoRewindButton);
     videoDiv.appendChild(videoForwardButton);
+    videoDiv.appendChild(videoFullscreenButton);
     result.appendChild(videoDiv);
 
 
@@ -91,6 +95,7 @@ var program = (function() {
     var videoSoundButton = document.querySelector('.sound');
     var videoRewindButton = document.querySelector('.rewind');
     var videoForwardButton = document.querySelector('.forward');
+    var videoFullscreenButton = document.querySelector('.fullscreen');
     //play
     videoPlayButton.addEventListener('click', function () {
       if (getVideo.paused) {
@@ -127,7 +132,17 @@ var program = (function() {
         console.log("video is has less than three seconds left.")
       }  
     });
-
+    //fullscreen
+    videoFullscreenButton.addEventListener('click', function () {
+      if(getVideo.requestFullscreen) {
+        getVideo.requestFullscreen();
+      } else if (getVideo.mozRequestFulscreen) {
+        getVideo.mozRequestFulscreen();
+      } 
+      else if (getVideo.webkitRequestFullScreen) {
+        getVideo.webkitRequestFullScreen();
+      }   
+    });
   }
   
    

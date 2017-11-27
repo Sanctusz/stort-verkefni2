@@ -56,6 +56,10 @@ html.grid::before {/* stylelint-disable-line */
   width: 25%;
 }
 
+.col-2 {
+  width: 16.6667%;
+}
+
 @media (max-width: 500px) {
   .col-sm-12 {
     width: 100%;

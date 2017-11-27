@@ -29,16 +29,8 @@ var qs = (function(a) {
     }
     return b;
 })(window.location.search.substr(1).split('&'));
-<<<<<<< HEAD
-console.log(currfield + " Current URL");
-var getMyID = qs["video"];
-console.log(getMyID+ " MYID");
-//QS
-
-var buttonDiv = document.createElement("div");
-=======
 var getMyID = qs['video'];
->>>>>>> f6df250c42b4d1965f61008da8a63f158bff25f4
+
 
 function PlayOrPause() {// eslint-disable-line
     var getVideo = document.querySelector('video');
@@ -76,28 +68,11 @@ function RewindVideo() {// eslint-disable-line
     }  
 }
 
-<<<<<<< HEAD
-function RewindVideo() {
-  var getVideo = document.querySelector('video');
-  var curtime = getVideo.currentTime;
-  if(curtime >= 3) {
-    getVideo.currentTime += -3;
-  } else {
-    getVideo.currentTime = 0;
-  }  
-}
 
-function ForwardVideo(){
-  var getVideo = document.querySelector('video');
-  var curtime = getVideo.currentTime;
-      if(curtime <= getVideo.duration-3) {
-        console.log(getVideo.currentTime);
-=======
 function ForwardVideo(){// eslint-disable-line
     var getVideo = document.querySelector('video');
     var curtime = getVideo.currentTime;
     if(curtime <= getVideo.duration-3) {
->>>>>>> f6df250c42b4d1965f61008da8a63f158bff25f4
         getVideo.currentTime += 3;
     } 
 }

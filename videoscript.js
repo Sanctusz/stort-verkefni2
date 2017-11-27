@@ -94,7 +94,7 @@ var program = (function() {
         var videoDiv = document.createElement('div');
         var videoElement = document.createElement('video');
         var videoSource = document.createElement('source');
-    
+      
         var getVideoPath = video[getMyID].video;
         videoSource.src = getVideoPath;
     

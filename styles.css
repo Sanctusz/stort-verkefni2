@@ -1,6 +1,10 @@
 body {
+<<<<<<< HEAD
   width: 960px; 
   margin: 0 auto;
+=======
+  width: 960px; margin: 0 auto;
+>>>>>>> aed04f864eb7f09a12fe0c58ef396c3806f88f6c
   background-color: #222;
 }
 
@@ -18,7 +22,11 @@ h1, h2, h3, h4, p {
 
 h4 {
   position: absolute;
+<<<<<<< HEAD
   right:  -10px;
+=======
+  left: 250px;
+>>>>>>> aed04f864eb7f09a12fe0c58ef396c3806f88f6c
   bottom: 100px;
   width: 100%; }
 

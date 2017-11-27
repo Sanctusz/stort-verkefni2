@@ -1,12 +1,7 @@
 body {
-<<<<<<< HEAD
-  width: 960px; 
+  width: 960px;
   margin: 0 auto;
-=======
-  width: 960px; margin: 0 auto;
->>>>>>> aed04f864eb7f09a12fe0c58ef396c3806f88f6c
-  background-color: #222;
-}
+  background-color: #222; }
 
 .image {
   position: relative;
@@ -22,11 +17,7 @@ h1, h2, h3, h4, p {
 
 h4 {
   position: absolute;
-<<<<<<< HEAD
-  right:  -10px;
-=======
-  left: 250px;
->>>>>>> aed04f864eb7f09a12fe0c58ef396c3806f88f6c
+  right: -10px;
   bottom: 100px;
   width: 100%; }
 
@@ -42,17 +33,18 @@ hr {
   color: #eee;
   border-style: solid; }
 
-  video {
-    width:100%;
-  }
+video {
+  width: 100%; }
 
-  .fake_img{
-    display:inline-block;
-    margin:5px 20px;
-    padding:5px;
-    max-width: 50px;
-}
+.fake_img {
+  display: inline-block;
+  margin: 5px 20px;
+  padding: 5px;
+  max-width: 50px; }
 
-.videoContainer{
-  text-align:center;
-}
+.videoContainer {
+  text-align: center; }
+
+@media (max-width: 500px) {
+  img {
+    width: 50%; } }

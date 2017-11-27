@@ -38,8 +38,6 @@ var getMyID = qs["video"];
 console.log(getMyID+ " MYID");
 //QS
 
-var myimgobj = document.images["jsbutton"];
-
 var buttonDiv = document.createElement("div");
 
 function PlayOrPause() {
@@ -92,7 +90,6 @@ function RewindVideo() {
 }
 
 function ForwardVideo(){
-  var getMyID = qs["video"];
   var getVideo = document.querySelector('video');
   var curtime = getVideo.currentTime;
       if(curtime <= getVideo.duration-3) {

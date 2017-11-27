@@ -5,10 +5,12 @@ var getQueryString = function ( field, url ) {
     return string ? string[1] : null;
 };
 
+document.addEventListener('DOMContentLoaded', function () {
+    program.init(result);
+});
+
 var thisOne = getQueryString(string);
-console.log(string);
-
-
+console.log(thisOne);
 
 var buttonDiv = document.createElement("div");
 result
@@ -24,10 +26,19 @@ function changePauseImageBack()
  return true;
 }
 
-//
-var videodata = JSON.parse(response);
-var video = videodata.videos;
-var videoCatagories = videodata.categories;
-result = document.querySelector("div");
-result = document.querySelector("div");
-
+var program = (function() {
+   
+      function init() {
+        loadJSON(function(response) {
+          var videodata = JSON.parse(response);
+          var video = videodata.videos;
+          var videoCatagories = videodata.categories;
+          result = document.querySelector("div");
+          show(video, videoCatagories);
+        });
+      }
+    
+      return {
+        init: init
+      }
+    })();

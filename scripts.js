@@ -86,7 +86,7 @@ function loadJSON(callback) {
         var video = videodata.videos;
         var videoCatagories = videodata.categories;
         result = document.querySelector("div");
-        show(video,videoCatagories);
+        show(video, videoCatagories);
       });
     }
   

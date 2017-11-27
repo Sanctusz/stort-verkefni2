@@ -1,33 +1,36 @@
 body {
-  background-color: #222;
-}
+  background-color: #222; }
 
 .image {
   position: relative;
-  width: 100%;
-}
+  width: 100%; }
 
 img {
-  width: 100%;
-}
+  width: 100%; }
 
 /* Texts */
-
 h1, h2, h3, h4, p {
-  color: #fff;
-}
+  color: #fff; }
 
 h4 {
   position: absolute;
-  right: 0;
-  bottom: 50px;
-  width: 100%;
-}
+  right: -10px;
+  bottom: 100px;
+  width: 100%; }
 
 h4 span {
   color: white;
   font: bold 24px/45px Helvetica, Sans-Serif;
   letter-spacing: -1px;
+<<<<<<< HEAD
+  background: black;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px; }
+
+hr {
+  color: #eee;
+  border-style: solid; }
+=======
   background: rgb(0, 0, 0);
   background: rgba(0,0,0,0.5);
   padding: 10px;
@@ -53,3 +56,4 @@ body {
 }
 =======
 >>>>>>> c47c97ba97562c160fc08b7f85070189808223d0
+>>>>>>> 91a8f69919e14b74ffd24093c24b04be120aa35b

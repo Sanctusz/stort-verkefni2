@@ -1,3 +1,20 @@
-img {
-  /* stylelint-disable-line */
-  width: 200px; }
+.image {
+    position: relative;
+    width: 100%;
+  }
+
+h4 {
+    position: absolute;
+    left: 56%;
+    bottom: 0px;
+    width: 100%;
+  }
+
+  h4 span {
+    color: white;
+    font: bold 24px/45px Helvetica, Sans-Serif;
+    letter-spacing: -1px;
+    background: rgb(0, 0, 0);
+    background: rgba(0,0,0,0,7);
+    padding: 10px;
+  }

@@ -40,7 +40,7 @@ function loadJSON(callback) {
 
               var a = document.createElement("a");
               var img = document.createElement("img");
-              a.href = "video.html?query=" + tempID;
+              a.href = "video.html?video=" + tempID;
               img.src = video[tempID].poster;
 
               //insert Video title

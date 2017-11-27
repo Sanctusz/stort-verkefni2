@@ -20,7 +20,8 @@
     "grid": "node-sass grid.scss grid.css -w",
     "styleslint": "stylelint styles.scss --syntax scss",
     "gridlint": "stylelint grid.scss --syntax scss",
-    "eslint": "eslint scripts.js",
+    "lint": "eslint scripts.js",
+    "vidlint": "eslint videoscript.js",
     "dev": "npm-run-all --parallel sass grid browser-sync"
   },
   "repository": {

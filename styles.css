@@ -1,6 +1,11 @@
 body {
+<<<<<<< HEAD
   width: 960px; margin: 0 auto;
   background-color: #222; }
+=======
+  background-color: #222;
+}
+>>>>>>> f6df250c42b4d1965f61008da8a63f158bff25f4
 
 .image {
   position: relative;

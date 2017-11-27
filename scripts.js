@@ -82,24 +82,22 @@ function loadJSON(callback) {
               imageDiv.appendChild(cH3); //Insert Title
 
               var videoCreated = video[tempID].created;
-
-              var cMinutes = 1000 * 60;
-              var cHours = cMinutes * 60;
-              var cDays = cHours * 24;
-              var cWeeks = cDays * 7;
-              var cYears = cDays * 365;
-
-              var daysOld = videoCreated / cDays;
-              var weeksOld = videoCreated / cWeeks;
+              
+              var cSeconds = videoCreated / 1000;
+              var cMinutes = cSeconds / 60;
+              var cHours = cMinutes / 60;
+              var cDays = cHours / 24;
+              var cWeeks = cDays / 7;
+              var cYears = cDays / 365;
 
               var p = document.createElement("p");
 
-              if (videoCreated <= 30) {
-                console.log(Math.floor(daysOld));
+              if (cDays <= 30) {
+                console.log(Math.floor(cDays));
                 var showCreated = "Fyrir " + daysOld + " degi síðan.";
               } else {
-                console.log(Math.round(weeksOld));
-                var showCreated = "Fyrir " + Math.round(weeksOld) + " vikum síðan.";
+                console.log(Math.round(cWeeks));
+                var showCreated = "Fyrir " + Math.round(cWeeks) + " vikum síðan.";
               }
               p.appendChild(document.createTextNode(showCreated));
               imageDiv.appendChild(p);

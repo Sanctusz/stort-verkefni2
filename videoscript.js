@@ -118,7 +118,7 @@ var program = (function() {
     });
     //forward
     videoForwardButton.addEventListener('click', function () {
-      var curtime =getVideo.currentTime;
+      var curtime = getVideo.currentTime;
       if(curtime <= video[getMyID].duration-3) {
         console.log(getVideo.currentTime);
         getVideo.currentTime += 3;

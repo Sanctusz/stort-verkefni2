@@ -30,24 +30,25 @@ function loadJSON(callback) {
         result.appendChild(div);
         var tempVid = cata[i].videos;
         for (var j = 0; j < tempVid.length; j++) { //this should be catagories and accessing videos
-            var tempID = tempVid[j]; //get video ID for current j, for each id in 'videos' or cata[1]
+            var tempID = tempVid[j]-1; //get video ID for current j, for each id in 'videos' or cata[1]
             //insert video/placeholder images 
             var imageDiv = document.createElement("div");
             imageDiv.setAttribute('class', 'image');
             var a = document.createElement("a");
             var img = document.createElement("img");
-            a.href = video[tempID-1].video;
-            img.src = video[tempID-1].poster;
+            a.href = video[tempID].video;
+            img.src = video[tempID].poster;
             imageDiv.appendChild(img);
             a.appendChild(imageDiv);
             div.appendChild(a);
             //insert Video title
             var cH3 = document.createElement("h3"); // create a h3 element
-            cH3.appendChild(document.createTextNode(video[tempID-1].title)); // throw video title into h3 element
+            cH3.appendChild(document.createTextNode(video[tempID].title)); // throw video title into h3 element
             div.appendChild(cH3)
             result.appendChild(div);
             //insert creation date
-            var videoDuration = video[tempID-1].duration;
+            var videoDuration = video[tempID].duration;
+            //make this a function?
             if (videoDuration > 60) {
                 //configure duraton
                 var minutes = Math.floor(videoDuration / 60);

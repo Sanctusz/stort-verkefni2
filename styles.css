@@ -5,7 +5,7 @@
 
 h4 {
     position: absolute;
-    left: 56%;
+    right: 0px;
     bottom: 0px;
     width: 100%;
   }
@@ -15,6 +15,6 @@ h4 {
     font: bold 24px/45px Helvetica, Sans-Serif;
     letter-spacing: -1px;
     background: rgb(0, 0, 0);
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.5);
     padding: 10px;
   }

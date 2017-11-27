@@ -36,11 +36,11 @@ function PlayOrPause() {// eslint-disable-line
     var getVideo = document.querySelector('video');
     if (getVideo.paused) {
         getVideo.play();
-        document.images['jsbuttonplay'].src= '/img/pause.svg';
+        document.images['jsbuttonplay'].src= './img/pause.svg';
         return true;
     } else {
         getVideo.pause();
-        document.images['jsbuttonplay'].src = '/img/play.svg';
+        document.images['jsbuttonplay'].src = './img/play.svg';
         return true;
     }
 }

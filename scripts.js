@@ -51,12 +51,16 @@ function loadJSON(callback) {
             if (videoDuration > 60) {
                 //configure duraton
                 var minutes = Math.floor(videoDuration / 60);
-                var seconds = videoDuration - minutes * 60; 
-                if (seconds < 10) {
+                var seconds = videoDuration - minutes * 60;
+                var showDuration = minutes + ":" + seconds; 
+                if (seconds < 10 && minutes < 10) {
+                    var showDuration = "0" + minutes + ":0" + seconds;
+                } else if(seconds < 10 && minutes > 9) {
                     var showDuration = minutes + ":0" + seconds;
-                } else {
-                    var showDuration = minutes + ":" + seconds;
+                } else if (seconds > 10 && minutes < 10) {
+                    var showDuration = "0" + minutes + ":" + seconds;
                 }
+
             } else if (videoDuration < 10) {
                 var showDuration = "00:0" + videoDuration;
             } else {

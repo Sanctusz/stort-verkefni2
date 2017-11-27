@@ -1,3 +1,7 @@
+body {
+  background-color: #222;
+}
+
 .image {
   position: relative;
   width: 100%;
@@ -5,6 +9,12 @@
 
 img {
   width: 100%;
+}
+
+/* Texts */
+
+h1, h2, h3, h4, p {
+  color: #fff;
 }
 
 h4 {

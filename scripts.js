@@ -21,32 +21,37 @@ function loadJSON(callback) {
     
       function show(video, cata) {
         var div = document.createElement("div");
-        var divname = ["Mynd:", "Lengd:", "Titill:", "Gert:"];
-        var divcontent = [video.poster, video.duration, video.title, video.created];
         for (var i = 0; i < cata.length; i++) { // this should be 0,1,2 or three catagories
+
           var cH2 = document.createElement("h2"); //create h2 element
+          var cDiv = document.createElement("div");
+          cDiv.setAttribute('class', 'col col-12 col-sm-12');
           cH2.appendChild(document.createTextNode(cata[i].title)); //throw catagory title into h2 element
-          div.appendChild(cH2)
-          result.appendChild(div);
+          cDiv.appendChild(cH2);
+          div.appendChild(cDiv);
+
+          div.setAttribute('class', 'row');
           var tempVid = cata[i].videos;
           for (var j = 0; j < tempVid.length; j++) { //this should be catagories and accessing videos
               var tempID = tempVid[j]-1; //get video ID for current j, for each id in 'videos' or cata[1]
               //insert video/placeholder images 
               var imageDiv = document.createElement("div");
-              imageDiv.setAttribute('class', 'image');
+              imageDiv.setAttribute('class', 'col col-4 col-sm-12 image');
+
               var a = document.createElement("a");
               var img = document.createElement("img");
               a.href = "video.html?query=" + tempID;
-              //a.href = video[tempID].video;
               img.src = video[tempID].poster;
-              imageDiv.appendChild(img);
-              a.appendChild(imageDiv);
-              div.appendChild(a);
+
               //insert Video title
               var cH3 = document.createElement("h3"); // create a h3 element
               cH3.appendChild(document.createTextNode(video[tempID].title)); // throw video title into h3 element
-              div.appendChild(cH3)
+
+              a.appendChild(img);
+              imageDiv.appendChild(a);
+              div.appendChild(imageDiv);
               result.appendChild(div);
+
               //insert creation date
               var videoDuration = video[tempID].duration;
               //make this a function?
@@ -73,11 +78,35 @@ function loadJSON(callback) {
               vidDuration.appendChild(vidSpan);
               vidSpan.appendChild(document.createTextNode(showDuration));
               
-              imageDiv.appendChild(vidDuration);
-              //insert duration somehow
+              imageDiv.appendChild(vidDuration); //Insert Duration
+              imageDiv.appendChild(cH3); //Insert Title
+
+              var videoCreated = video[tempID].created;
+
+              var cMinutes = 1000 * 60;
+              var cHours = cMinutes * 60;
+              var cDays = cHours * 24;
+              var cWeeks = cDays * 7;
+              var cYears = cDays * 365;
+
+              var daysOld = videoCreated / cDays;
+              var weeksOld = videoCreated / cWeeks;
+
+              var p = document.createElement("p");
+
+              if (videoCreated <= 30) {
+                console.log(Math.floor(daysOld));
+                var showCreated = "Fyrir " + daysOld + " degi síðan.";
+              } else {
+                console.log(Math.round(weeksOld));
+                var showCreated = "Fyrir " + Math.round(weeksOld) + " vikum síðan.";
+              }
+              p.appendChild(document.createTextNode(showCreated));
+              imageDiv.appendChild(p);
           }
   
         }
+        result.appendChild(div); //Hendi Result inní Div
       }
     
       function init() {

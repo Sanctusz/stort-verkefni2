@@ -22,6 +22,7 @@ h4 span {
   color: white;
   font: bold 24px/45px Helvetica, Sans-Serif;
   letter-spacing: -1px;
+<<<<<<< HEAD
   background: black;
   background: rgba(0, 0, 0, 0.5);
   padding: 10px; }
@@ -29,3 +30,30 @@ h4 span {
 hr {
   color: #eee;
   border-style: solid; }
+=======
+  background: rgb(0, 0, 0);
+  background: rgba(0,0,0,0.5);
+  padding: 10px;
+}
+<<<<<<< HEAD
+
+input.playImageButton {
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  text-indent: -3000px;
+  background: url(/img/play.svg) no-repeat 50% 50%;
+  /* width: 20%; */
+  height: 100%;
+}
+
+body {
+  background-color: grey;
+}
+
+.videobuttons {
+  float: left;
+}
+=======
+>>>>>>> c47c97ba97562c160fc08b7f85070189808223d0
+>>>>>>> 91a8f69919e14b74ffd24093c24b04be120aa35b

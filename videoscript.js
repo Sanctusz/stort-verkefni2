@@ -11,22 +11,36 @@ function loadJSON(callback) {
     console.log("json connected");
 }
 
-var getQueryString = function ( field, url ) {
-    var href = url ? url : window.location.href;
-    var reg = new RegExp( '[?&]' + field + '=([^&#]*)', 'i' );
-    var string = reg.exec(href);
-    return string ? string[1] : null;
-};
+var result;
 
 document.addEventListener('DOMContentLoaded', function () {
     program.init(result);
 });
 
-var thisOne = getQueryString(string);
-console.log(thisOne);
+
+var currfield = window.location.search;
+
+var qs = (function(a) {
+  if (a == "") return {};
+  var b = {};
+  for (var i = 0; i < a.length; ++i)
+  {
+      var p=a[i].split('=', 2);
+      if (p.length == 1)
+          b[p[0]] = "";
+      else
+          b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+  }
+  return b;
+})(window.location.search.substr(1).split('&'));
+console.log(currfield + " Current URL");
+var getMyID = qs["video"];
+console.log(getMyID+ " MYID");
+//QS
+
+
 
 var buttonDiv = document.createElement("div");
-result
 
 function changePlayImage()
 {
@@ -40,18 +54,51 @@ function changePauseImageBack()
 }
 
 var program = (function() {
+
+  function show(video) {
+    var videoDiv = document.createElement("div");
+    var videoElement = document.createElement("video");
+    var videoSource = document.createElement("source");
+    var videoPlayButton = document.createElement("button");
+    videoPlayButton.setAttribute('class', 'play');
+ 
+    var getVideoPath = video[getMyID].video;
+    videoSource.src = getVideoPath;
+
+
+    videoElement.appendChild(videoSource);
+    videoDiv.appendChild(videoElement);
+    videoDiv.appendChild(videoPlayButton);
+    result.appendChild(videoDiv);
+
+
+    var getVideo = document.querySelector('video');
+    var videoPlayButton = document.querySelector('.play');
+
+    videoPlayButton.addEventListener('click', function () {
+      if (getVideo.paused) {
+        getVideo.play();
+        videoPlayButton.removeChild(videoPlayButton.firstChild);
+        videoPlayButton.appendChild(document.createTextNode('Pause'));
+      } else {
+        getVideo.pause();
+        videoPlayButton.removeChild(videoPlayButton.firstChild);
+        videoPlayButton.appendChild(document.createTextNode('Play'));
+      }
+    });
+  }
+  
    
-      function init() {
-        loadJSON(function(response) {
-          var videodata = JSON.parse(response);
-          var video = videodata.videos;
-          var videoCatagories = videodata.categories;
-          result = document.querySelector("div");
-          show(video, videoCatagories);
-        });
-      }
-    
-      return {
-        init: init
-      }
-    })();
+  function init() {
+    loadJSON(function(response) {
+      var videodata = JSON.parse(response);
+      var video = videodata.videos;
+      result = document.querySelector("div");
+      show(video);
+    });
+  }
+
+  return {
+    init: init
+  }
+})();

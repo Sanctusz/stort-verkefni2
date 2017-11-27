@@ -59,8 +59,19 @@ var program = (function() {
     var videoDiv = document.createElement("div");
     var videoElement = document.createElement("video");
     var videoSource = document.createElement("source");
+    //play
     var videoPlayButton = document.createElement("button");
     videoPlayButton.setAttribute('class', 'play');
+    //mute
+    var videoSoundButton = document.createElement("button");
+    videoSoundButton.setAttribute('class', 'sound');
+    //rewind
+    var videoRewindButton = document.createElement("button");
+    videoRewindButton.setAttribute('class', 'rewind');
+    //forward
+    var videoForwardButton = document.createElement("button");
+    videoForwardButton.setAttribute('class', 'forward');
+
  
     var getVideoPath = video[getMyID].video;
     videoSource.src = getVideoPath;
@@ -69,23 +80,54 @@ var program = (function() {
     videoElement.appendChild(videoSource);
     videoDiv.appendChild(videoElement);
     videoDiv.appendChild(videoPlayButton);
+    videoDiv.appendChild(videoSoundButton);
+    videoDiv.appendChild(videoRewindButton);
+    videoDiv.appendChild(videoForwardButton);
     result.appendChild(videoDiv);
 
 
     var getVideo = document.querySelector('video');
     var videoPlayButton = document.querySelector('.play');
-
+    var videoSoundButton = document.querySelector('.sound');
+    var videoRewindButton = document.querySelector('.rewind');
+    var videoForwardButton = document.querySelector('.forward');
+    //play
     videoPlayButton.addEventListener('click', function () {
       if (getVideo.paused) {
         getVideo.play();
-        videoPlayButton.removeChild(videoPlayButton.firstChild);
-        videoPlayButton.appendChild(document.createTextNode('Pause'));
       } else {
         getVideo.pause();
-        videoPlayButton.removeChild(videoPlayButton.firstChild);
-        videoPlayButton.appendChild(document.createTextNode('Play'));
       }
     });
+    //mute
+    videoSoundButton.addEventListener('click', function () {
+      if (getVideo.muted === false) {
+        getVideo.muted = true;
+      } else {
+        getVideo.muted = false;
+      }
+    });
+    //rewind
+    videoRewindButton.addEventListener('click', function () {
+      var curtime = getVideo.currentTime;
+      if(curtime >= 3) {
+        getVideo.currentTime += -3;
+      } else {
+        getVideo.currentTime = 0;
+      }  
+    });
+    //forward
+    videoForwardButton.addEventListener('click', function () {
+      var curtime =getVideo.currentTime;
+      if(curtime <= video[getMyID].duration-3) {
+        console.log(getVideo.currentTime);
+        getVideo.currentTime += 3;
+      } else {
+        console.log(getVideo.currentTime);
+        console.log("video is has less than three seconds left.")
+      }  
+    });
+
   }
   
    

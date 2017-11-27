@@ -36,7 +36,7 @@ function loadJSON(callback) {
               imageDiv.setAttribute('class', 'image');
               var a = document.createElement("a");
               var img = document.createElement("img");
-              a.href = "video.html?query=" + tempID;
+              a.href = "video.html?video=" + tempID;
               //a.href = video[tempID].video;
               img.src = video[tempID].poster;
               imageDiv.appendChild(img);

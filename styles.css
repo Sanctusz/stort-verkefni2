@@ -1,3 +1,7 @@
+body {
+  background-color: #222;
+}
+
 .image {
   position: relative;
   width: 100%;
@@ -5,6 +9,12 @@
 
 img {
   width: 100%;
+}
+
+/* Texts */
+
+h1, h2, h3, h4, p {
+  color: #fff;
 }
 
 h4 {
@@ -22,6 +32,7 @@ h4 span {
   background: rgba(0,0,0,0.5);
   padding: 10px;
 }
+<<<<<<< HEAD
 
 input.playImageButton {
   border: none;
@@ -40,3 +51,5 @@ body {
 .videobuttons {
   float: left;
 }
+=======
+>>>>>>> c47c97ba97562c160fc08b7f85070189808223d0

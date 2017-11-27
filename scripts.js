@@ -25,19 +25,22 @@ function loadJSON(callback) {
 
           var cH2 = document.createElement("h2"); //create h2 element
           var cDiv = document.createElement("div");
+          var vRow = document.createElement("div");
           cDiv.setAttribute('class', 'col col-12 col-sm-12');
+          vRow.setAttribute('class', 'row');
           cH2.appendChild(document.createTextNode(cata[i].title)); //throw catagory title into h2 element
           cDiv.appendChild(cH2);
           div.appendChild(cDiv);
+          cDiv.appendChild(vRow);
 
           div.setAttribute('class', 'row');
           var tempVid = cata[i].videos;
           for (var j = 0; j < tempVid.length; j++) { //this should be catagories and accessing videos
               var tempID = tempVid[j]-1; //get video ID for current j, for each id in 'videos' or cata[1]
-              //insert video/placeholder images 
+              //insert video/placeholder images
               var imageDiv = document.createElement("div");
               imageDiv.setAttribute('class', 'col col-4 col-sm-12 image');
-
+              
               var a = document.createElement("a");
               var img = document.createElement("img");
               a.href = "video.html?video=" + tempID;
@@ -47,10 +50,11 @@ function loadJSON(callback) {
               var cH3 = document.createElement("h3"); // create a h3 element
               cH3.appendChild(document.createTextNode(video[tempID].title)); // throw video title into h3 element
 
+              vRow.appendChild(imageDiv);
               a.appendChild(img);
               imageDiv.appendChild(a);
-              div.appendChild(imageDiv);
-              result.appendChild(div);
+              vRow.appendChild(imageDiv);
+              div.appendChild(cDiv);
 
               //insert creation date
               var videoDuration = video[tempID].duration;
@@ -91,23 +95,26 @@ function loadJSON(callback) {
               var cHours = cMinutes / 60;
               var cDays = cHours / 24;
               var cWeeks = cDays / 7;
+              var cMonths = cDays / 30;
               var cYears = cDays / 365;
 
               var p = document.createElement("p");
 
-              if (cDays > 1 && cDays <= 30) {
+              if (cDays <= 7) {
                 var showCreated = "Fyrir " + Math.round(cDays) + " dögum síðan.";
-              } else if (cDays <= 1) {
-                var showCreated = "Fyrir " + Math.round(cDays) + " degi síðan.";
-              }
-              else {
+              } else if (cDays >= 8 && cDays <= 30) {
                 var showCreated = "Fyrir " + Math.round(cWeeks) + " vikum síðan.";
+              } else if (cDays >= 31 && cDays <= 365) {
+                var showCreated = "Fyrir " + Math.round(cMonths) + " mánuðum síðan.";
+              } else {
+                var showCreated = "Fyrir " + Math.round(cYears) + " árum síðan.";
               }
+              
               p.appendChild(document.createTextNode(showCreated));
               imageDiv.appendChild(p);
           }
           var hr = document.createElement("hr");
-          div.appendChild(hr);
+          cDiv.appendChild(hr);
         }
         result.appendChild(div); //Hendi Result inní Div
       }

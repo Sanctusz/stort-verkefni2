@@ -40,3 +40,17 @@ hr {
   video {
     width:100%;
   }
+
+  .fake_img{
+    display:inline-block;
+    margin:5px 20px;
+    padding:5px;
+    
+    border:1px solid #CCC;
+}
+
+.videoContainer{
+  text-align:center;
+  
+  border:1px solid #666;
+}

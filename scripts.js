@@ -82,8 +82,11 @@ function loadJSON(callback) {
               imageDiv.appendChild(cH3); //Insert Title
 
               var videoCreated = video[tempID].created;
+              var now = new Date();
+              var diff = now - videoCreated;
+              console.log("diff"+diff);
               
-              var cSeconds = videoCreated / 1000;
+              var cSeconds = diff / 1000;
               var cMinutes = cSeconds / 60;
               var cHours = cMinutes / 60;
               var cDays = cHours / 24;
@@ -93,10 +96,8 @@ function loadJSON(callback) {
               var p = document.createElement("p");
 
               if (cDays <= 30) {
-                console.log(Math.floor(cDays));
-                var showCreated = "Fyrir " + daysOld + " degi síðan.";
+                var showCreated = "Fyrir " + Math.round(cDays) + " dögum síðan.";
               } else {
-                console.log(Math.round(cWeeks));
                 var showCreated = "Fyrir " + Math.round(cWeeks) + " vikum síðan.";
               }
               p.appendChild(document.createTextNode(showCreated));

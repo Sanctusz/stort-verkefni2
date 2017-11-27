@@ -22,3 +22,21 @@ h4 span {
   background: rgba(0,0,0,0.5);
   padding: 10px;
 }
+
+input.playImageButton {
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  text-indent: -3000px;
+  background: url(/img/play.svg) no-repeat 50% 50%;
+  /* width: 20%; */
+  height: 100%;
+}
+
+body {
+  background-color: grey;
+}
+
+.videobuttons {
+  float: left;
+}

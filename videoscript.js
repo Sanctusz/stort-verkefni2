@@ -38,18 +38,29 @@ var getMyID = qs["video"];
 console.log(getMyID+ " MYID");
 //QS
 
-
+var myimgobj = document.images["jsbutton"];
 
 var buttonDiv = document.createElement("div");
 
 function changePlayImage()
 {
-document.images["jsbutton"].src= "./img/play.svg";
+document.images["jsbuttonplay"].src= "/img/play.svg";
 return true;
 }
-function changePauseImageBack()
+function changePauseImage()
 {
- document.images["jsbutton"].src = "./img/pause.svg";
+ document.images["jsbuttonplay"].src = "/img/pause.svg";
+ return true;
+}
+
+function changeMuteImage()
+{
+document.images["jsbuttonmute"].src= "./img/mute.svg";
+return true;
+}
+function changeUnmuteImage()
+{
+ document.images["jsbuttonmute"].src = "./img/unmute.svg";
  return true;
 }
 
@@ -75,18 +86,22 @@ var program = (function() {
     var videoFullscreenButton = document.createElement("button");
     videoFullscreenButton.setAttribute('class', 'fullscreen');
 
- 
+    var buttonImage = document.createElement("img");
+    buttonImage.scr = "./img/pause.svg";
+
+    videoPlayButton.appendChild(buttonImage);
+    
     var getVideoPath = video[getMyID].video;
     videoSource.src = getVideoPath;
-
-
-    videoElement.appendChild(videoSource);
+    
     videoDiv.appendChild(videoElement);
     videoDiv.appendChild(videoPlayButton);
     videoDiv.appendChild(videoSoundButton);
     videoDiv.appendChild(videoRewindButton);
     videoDiv.appendChild(videoForwardButton);
     videoDiv.appendChild(videoFullscreenButton);
+
+    videoElement.appendChild(videoSource);
     result.appendChild(videoDiv);
 
 
@@ -97,19 +112,36 @@ var program = (function() {
     var videoForwardButton = document.querySelector('.forward');
     var videoFullscreenButton = document.querySelector('.fullscreen');
     //play
+    /*
+    function PauseOrPlay() {
+      if (getVideo.paused) {
+        getVideo.play();
+        videoPlayButton.class='playImageButton';
+      } else {
+        getVideo.pause();
+        videoPlayButton.class='pauseImageButton';
+      }
+    }
+    */
     videoPlayButton.addEventListener('click', function () {
       if (getVideo.paused) {
         getVideo.play();
+        changePauseImage();
       } else {
         getVideo.pause();
+        changePlayImage();
       }
     });
+    
     //mute
+
     videoSoundButton.addEventListener('click', function () {
       if (getVideo.muted === false) {
         getVideo.muted = true;
+        changeUnmuteImage();
       } else {
         getVideo.muted = false;
+        changeMuteImage();
       }
     });
     //rewind
@@ -127,10 +159,7 @@ var program = (function() {
       if(curtime <= video[getMyID].duration-3) {
         console.log(getVideo.currentTime);
         getVideo.currentTime += 3;
-      } else {
-        console.log(getVideo.currentTime);
-        console.log("video is has less than three seconds left.")
-      }  
+      } 
     });
     //fullscreen
     videoFullscreenButton.addEventListener('click', function () {
@@ -150,7 +179,7 @@ var program = (function() {
     loadJSON(function(response) {
       var videodata = JSON.parse(response);
       var video = videodata.videos;
-      result = document.querySelector("div");
+      result = document.querySelector(".col");
       show(video);
     });
   }

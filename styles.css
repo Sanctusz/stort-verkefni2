@@ -1,11 +1,6 @@
 body {
-<<<<<<< HEAD
   width: 960px; margin: 0 auto;
   background-color: #222; }
-=======
-  background-color: #222;
-}
->>>>>>> f6df250c42b4d1965f61008da8a63f158bff25f4
 
 .image {
   position: relative;
@@ -17,7 +12,7 @@ img {
 /* Texts */
 h1, h2, h3, h4, p {
   color: #fff;
-  font: bold 24px/45px Helvetica, Sans-Serif; }
+  font-family: Helvetica, Sans-Serif; }
 
 h4 {
   position: absolute;

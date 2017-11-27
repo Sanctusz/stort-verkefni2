@@ -95,15 +95,19 @@ function loadJSON(callback) {
 
               var p = document.createElement("p");
 
-              if (cDays <= 30) {
+              if (cDays > 1 && cDays <= 30) {
                 var showCreated = "Fyrir " + Math.round(cDays) + " dögum síðan.";
-              } else {
+              } else if (cDays <= 1) {
+                var showCreated = "Fyrir " + Math.round(cDays) + " degi síðan.";
+              }
+              else {
                 var showCreated = "Fyrir " + Math.round(cWeeks) + " vikum síðan.";
               }
               p.appendChild(document.createTextNode(showCreated));
               imageDiv.appendChild(p);
           }
-  
+          var hr = document.createElement("hr");
+          div.appendChild(hr);
         }
         result.appendChild(div); //Hendi Result inní Div
       }
